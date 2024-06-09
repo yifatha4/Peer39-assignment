@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Page Categorization System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            font-size: 14px; /* Set a slightly smaller font size */
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        u {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Web Page Categorization System</h1>
+    
+    <h2>Overview</h2>
+    <p>
+        This project implements a system for categorizing web pages based on predefined keyword categories using Java. The system utilizes the Aho-Corasick algorithm for efficient multi-pattern keyword matching, leveraging the <code>org.ahocorasick</code> library and <code>Jsoup</code> for HTML parsing and text extraction.
+    </p>
+
+    <h2>Features</h2>
+    <ul>
+        <li><u>Keyword-Based Categorization</u>: Classify web pages into categories based on predefined keywords.</li>
+        <li><u>Efficient Multi-Pattern Matching</u>: Use the Aho-Corasick algorithm to efficiently search for multiple keywords within the text content of web pages.</li>
+        <li><u>HTML Parsing and Cleaning</u>: Fetch and clean web page content using <code>Jsoup</code> to remove unnecessary HTML elements and URLs.</li>
+    </ul>
+
+    <h2>Trie Data Structure</h2>
+    <p>
+        The system uses the Trie data structure from the <code>org.ahocorasick</code> library to store and search for keywords efficiently.
+    </p>
+    <ul>
+        <li><u>categoryTries</u>: A map that associates each category name with a corresponding Trie built from its keywords.</li>
+    </ul>
+
+    <h2>Building the Trie</h2>
+    <p>
+        <u>Time Complexity</u>: Building a Trie for a single category with <code>k</code> keywords, each of average length <code>l</code> takes <code>O(k * l) * M</code>, where <code>M</code> is the number of categories.
+    </p>
+    
+    
+     <h3>Project Structure</h3>
+    <ul>
+        <li><u>src/main/java</u>: Contains the main source code.</li>
+        <li><u>src/test/java</u>: Contains unit tests.</li>
+    </ul>
+
+    <h3>Building the Project</h3>
+    <p>
+        To build the project using Gradle, run the following command:
+    </p>
+    <pre><code>./gradlew clean build</code></pre>
+
+    <h3>Running the Application</h3>
+    <p>
+        To run the application, use the following command format:
+    </p>
+    <pre><code>java -jar build/libs/your-application-name.jar "Category1,Category2" "http://example.com,http://anotherexample.com"</code></pre>
+
+    <h3>Example Usage</h3>
+    <pre><code>java -jar build/libs/your-application-name.jar "Star Wars,Basketball" "https://www.starwars.com/news/everything-we-know-about-the-mandalorian,https://www.nba.com/news"</code></pre>
+
+    <h3>Explanation</h3>
+    <ul>
+        <li>The first argument is a comma-separated list of category names.</li>
+        <li>The second argument is a comma-separated list of URLs to process.</li>
+    </ul>
+    
+</body>
+</html>
