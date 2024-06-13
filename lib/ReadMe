@@ -1,0 +1,15 @@
+Overview
+This project implements a system for categorizing web pages based on predefined keyword categories using Java. The system utilizes the Aho-Corasick algorithm for efficient multi-pattern keyword matching, leveraging the org.ahocorasick library and Jsoup for HTML parsing and text extraction.
+
+Features
+Keyword-Based Categorization: Classify web pages into categories based on predefined keywords.
+Efficient Multi-Pattern Matching: Use the Aho-Corasick algorithm to efficiently search for multiple keywords within the text content of web pages.
+HTML Parsing and Cleaning: Fetch and clean web page content using Jsoup to remove unnecessary HTML elements and URLs.
+
+Trie Data Structure
+The system uses the Trie data structure from the org.ahocorasick library to store and search for keywords efficiently.
+
+categoryTries: A map that associates each category name with a corresponding Trie built from its keywords.
+Building the Trie
+Time Complexity: Building a Trie for a single category with k keywords, each of average length l O(k*l)*M ( m- numbers of categories) 
+𝑙

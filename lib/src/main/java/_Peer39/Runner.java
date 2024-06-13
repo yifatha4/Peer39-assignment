@@ -25,10 +25,12 @@ public class Runner {
 	 private static Map<String, Trie> categoryTries;
 	
 	 public static void main(String[] args) {
-	        if (args.length < 2) {
+		 	if (args.length < 2) {
 	            System.err.println("Usage: java Runner <Category1,Category2,...> <URL1,URL2,...>");
 	            System.exit(1);
 	        }
+	      
+	        // Convert arguments to lower case
 	        args.toString().toLowerCase();
 	        
 	        // Parse categories from the first argument-- change to lowerCase
@@ -72,7 +74,8 @@ public class Runner {
 	     */
 	 
 	    public static void initializeModel(List<Category> categories) {
-	        categoryTries = new HashMap<>();
+	      
+	    	categoryTries = new HashMap<>();
 	        for (Category category : categories) {
 	            Trie.TrieBuilder trieBuilder = Trie.builder().ignoreCase();
 	            for (String keyword : category.getKeywords()) {
@@ -109,6 +112,7 @@ public class Runner {
      * @throws IOException If an error occurs while fetching the web page content.
      */
     public static String fetchPageContent(String url) throws IOException {
+    	
         try {  // Connect to the URL and parse the HTML document
             Document doc = Jsoup.connect(url)
                     .timeout(10 * 1000)  // Set a timeout to handle slow responses
@@ -178,10 +182,8 @@ public class Runner {
 				//for (Emit emit : emits) { System.out.println(" - " + emit.getKeyword()); }
 				 
             } else {
-                //System.out.println("URL: " + url);
-                //System.out.println("No matches found in category '" + categoryName + "'.");
-               
-            }
+               System.out.println("******* No matches found ******* "+ "Category :"+categoryName +" Url :"+ url );
+          }
         }
         catch (IOException e) {
         	
